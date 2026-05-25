@@ -256,9 +256,10 @@
 // ── CONFIG ────────────────────────────────────────────────────
 // La clave general sirve para listar canales.
 // Cada canal necesita su propia Read API Key para leer feeds.
-const ACCOUNT_KEY = 'DXGLVIBZ8L1DW058';
+const ACCOUNT_KEY = '__ACCOUNT_KEY__';
 const BASE = 'https://api.thingspeak.com';
 const STORAGE_KEY = 'airsensor_read_key';
+const INJECTED_READ_KEY = '__READ_KEY__';
 
 // ── AQI / SCALES ──────────────────────────────────────────────
 const AQI = [
@@ -614,8 +615,9 @@ async function init(){
 
 // ── STARTUP ───────────────────────────────────────────────────
 (function startup(){
-  readKey=loadSavedKey();
-  if(readKey){
+  const injected = (typeof INJECTED_READ_KEY !== 'undefined' && INJECTED_READ_KEY !== '__READ_KEY__');
+  readKey = injected ? INJECTED_READ_KEY : loadSavedKey();
+  if(injected || readKey){
     document.getElementById('readKeyInput').value=readKey;
     document.getElementById('setupBox').classList.add('hidden');
     init();
