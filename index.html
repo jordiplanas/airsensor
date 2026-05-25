@@ -518,7 +518,7 @@ document.getElementById('installBtn').addEventListener('click', async()=>{
   deferredPrompt.prompt(); await deferredPrompt.userChoice;
   deferredPrompt=null; document.getElementById('install-banner').style.display='none';
 });
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/airsensor/sw.js').catch(()=>{});
 
 init();
 </script>

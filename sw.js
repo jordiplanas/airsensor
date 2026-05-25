@@ -1,8 +1,10 @@
-const CACHE = 'airsensor-v1';
+const CACHE = 'airsensor-v2';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  '/airsensor/',
+  '/airsensor/index.html',
+  '/airsensor/manifest.json',
+  '/airsensor/icons/icon-192.png',
+  '/airsensor/icons/icon-512.png',
 ];
 
 self.addEventListener('install', e => {
@@ -22,14 +24,12 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // Network-first for API calls
   if (e.request.url.includes('thingspeak.com')) {
-    e.respondWith(fetch(e.request).catch(() => new Response('{"error":"offline"}', {
-      headers: { 'Content-Type': 'application/json' }
-    })));
+    e.respondWith(fetch(e.request).catch(() =>
+      new Response('{"error":"offline"}', { headers: { 'Content-Type': 'application/json' } })
+    ));
     return;
   }
-  // Cache-first for app shell
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request))
   );

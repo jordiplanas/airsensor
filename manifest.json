@@ -1,27 +1,27 @@
 {
   "name": "AirSensor — Monitor de Contaminación",
   "short_name": "AirSensor",
-  "description": "Monitor de contaminación en tiempo real con ThingSpeak",
-  "start_url": "/",
+  "description": "Monitor de contaminación en tiempo real",
+  "start_url": "/airsensor/",
+  "scope": "/airsensor/",
   "display": "standalone",
   "background_color": "#060c1a",
-  "theme_color": "#0a0f1e",
+  "theme_color": "#060c1a",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "/airsensor/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "/airsensor/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
   "categories": ["utilities", "weather"],
   "lang": "es"
 }
