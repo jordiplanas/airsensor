@@ -268,7 +268,7 @@ function getFieldScale(name){
 
 // ── API — canal público, sin api_key ──────────────────────────
 async function fetchFeed(startDate, endDate, results=100){
-  let url = `${BASE}/channels/${CHANNEL_ID}/feeds.json?results=${results}`;
+  let url = `${BASE}/channels/${CHANNEL_ID}/feeds.json?api_key=15BKECWVQLJD3Y7F&results=${results}`;
   if(startDate) url += `&start=${encodeURIComponent(startDate.toISOString())}`;
   if(endDate)   url += `&end=${encodeURIComponent(endDate.toISOString())}`;
   const r = await fetch(url);
